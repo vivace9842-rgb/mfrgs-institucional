@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MFRGS INOVAÇÕES | Inteligência e Autoridade Digital</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .bg-sage { background-color: #2D3A30; }
@@ -13,6 +17,7 @@
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
         }
         .hero-gradient {
             background: linear-gradient(180deg, #2D3A30 0%, #1A221B 100%);
@@ -23,15 +28,15 @@
 
     <nav class="flex justify-between items-center p-6 max-w-7xl mx-auto">
         <div class="text-2xl font-bold text-gold tracking-tighter">MFRGS <span class="text-white font-light">INOVAÇÕES</span></div>
-        <a href="#contato" class="border border-gold text-gold px-6 py-2 rounded-full hover:bg-gold hover:text-black transition text-sm">Falar com o Sentinela</a>
+        <button onclick="solicitarAuditoria()" class="border border-gold text-gold px-6 py-2 rounded-full hover:bg-gold hover:text-black transition text-sm">Falar com o Sentinela</button>
     </nav>
 
     <header class="py-20 px-6 text-center max-w-4xl mx-auto">
         <h1 class="text-5xl md:text-6xl font-bold mb-6">Não apenas um site. Uma <span class="text-gold">Fortaleza Digital</span>.</h1>
         <p class="text-xl opacity-80 mb-10 font-light italic">Protegendo o investimento de quem valoriza a ética e a autoridade. Especialistas em Clínicas e Advocacia.</p>
         <div class="flex flex-col md:flex-row gap-4 justify-center">
-            <button class="bg-gold text-black px-8 py-4 rounded-lg font-bold hover:scale-105 transition">QUERO O SISTEMA EM MINHA EMPRESA</button>
-            <button class="glass-card px-8 py-4 rounded-lg font-medium hover:bg-white/10">Ver Auditoria Sentinela</button>
+            <button onclick="solicitarAuditoria()" class="bg-gold text-black px-8 py-4 rounded-lg font-bold hover:scale-105 transition shadow-lg shadow-yellow-900/20">QUERO O SISTEMA EM MINHA EMPRESA</button>
+            <button onclick="solicitarAuditoria()" class="glass-card px-8 py-4 rounded-lg font-medium hover:bg-white/10">Ver Auditoria Sentinela</button>
         </div>
     </header>
 
@@ -39,23 +44,28 @@
         <div class="glass-card p-8 rounded-2xl">
             <div class="text-gold text-3xl mb-4">🛡️</div>
             <h3 class="text-xl font-bold mb-2 text-gold">Gestão de Tráfego Blindada</h3>
-            <p class="text-sm opacity-70 italic">Algoritmos que pausam o desperdício e focam no fechamento de alto valor.</p>
+            <p class="text-sm opacity-70 italic">Algoritmos que pausam o desperdício e focam no fechamento de alto valor. Seu dinheiro protegido com razão e ética.</p>
         </div>
         <div class="glass-card p-8 rounded-2xl">
             <div class="text-gold text-3xl mb-4">💎</div>
             <h3 class="text-xl font-bold mb-2 text-gold">Interfaces de Elite</h3>
-            <p class="text-sm opacity-70 italic">Design Verde Sálvia e Ouro projetado para transmitir autoridade imediata.</p>
+            <p class="text-sm opacity-70 italic">Design Verde Sálvia e Ouro projetado para transmitir autoridade imediata. O padrão que clínicas e advogados exigem.</p>
         </div>
         <div class="glass-card p-8 rounded-2xl">
             <div class="text-gold text-3xl mb-4">👁️</div>
             <h3 class="text-xl font-bold mb-2 text-gold">Monitoramento Sentinela</h3>
-            <p class="text-sm opacity-70 italic">Vigilância 24/7 para não deixar nenhum cliente sem resposta nas redes.</p>
+            <p class="text-sm opacity-70 italic">Vigilância 24/7 para não deixar nenhum cliente sem resposta. Capturamos intenções de compra no ato.</p>
         </div>
     </section>
 
+    <section class="py-20 text-center glass-card mx-6 my-10 rounded-3xl max-w-5xl md:mx-auto p-10">
+        <h2 class="text-3xl font-bold mb-4">"Esperei com paciência no Senhor..."</h2>
+        <p class="text-gold italic">Missão 5: Preparando a Fábrica de Gratidão</p>
+    </section>
+
     <footer class="py-10 border-t border-white/10 text-center opacity-50 text-xs">
-        MFRGS INOVAÇÕES - "Esperei com paciência no Senhor" (Salmo 40) <br>
-        Tecnologia EMPATHIA™ | RLS Protected
+        <p class="mb-2">MFRGS INOVAÇÕES © 2026 | CNPJ: Sistema Integrado .com.br</p>
+        <p>Tecnologia EMPATHIA™ | Proteção de Dados RLS & Hardware Encryption</p>
     </footer>
 
 </body>
