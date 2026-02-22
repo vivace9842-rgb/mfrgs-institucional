@@ -15,8 +15,22 @@
             --gold: #D4AF37;
             --deep: #0F1410;
         }
-        body { background-color: var(--deep); overflow-x: hidden; }
         
+        body { 
+            background-color: var(--deep); 
+            overflow-x: hidden; 
+            color: #f3f4f6;
+            font-family: sans-serif;
+        }
+        
+        /* Camada de Interatividade Calibrada */
+        nav, button, a, .clickable {
+            position: relative;
+            z-index: 50 !important;
+            cursor: pointer;
+            pointer-events: auto !important;
+        }
+
         .glass {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(15px);
@@ -28,7 +42,7 @@
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
         }
 
-        /* Animação de fundo */
+        /* Animação de fundo (Fixa para não sobrepor cliques) */
         .bg-animate {
             background: radial-gradient(circle at 50% 50%, #2D3A30 0%, #0F1410 100%);
             position: fixed; width: 100%; height: 100%; z-index: -1;
@@ -38,24 +52,33 @@
             position: absolute; width: 300px; height: 300px;
             background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
             filter: blur(50px); animation: float 15s infinite alternate;
+            z-index: -1;
+            pointer-events: none;
         }
 
         @keyframes float {
             from { transform: translate(0, 0); }
             to { transform: translate(100px, 100px); }
         }
+
+        button:active {
+            transform: scale(0.95);
+            filter: brightness(1.2);
+        }
     </style>
 </head>
-<body class="text-gray-100 font-sans">
-    <div class="bg-animate text-white font-light"></div>
+<body>
+    <div class="bg-animate"></div>
     <div class="floating-shape top-0 left-0"></div>
 
-    <nav class="flex justify-between items-center p-8 max-w-7xl mx-auto relative z-10">
+    <nav class="flex justify-between items-center p-8 max-w-7xl mx-auto relative">
         <div class="text-3xl font-bold text-gold tracking-tighter">MFRGS <span class="text-white font-light">INOVAÇÕES</span></div>
-        <button onclick="solicitarAuditoria()" class="glass text-gold px-8 py-2 rounded-full hover:bg-gold hover:text-black transition duration-500 text-sm font-bold gold-glow uppercase tracking-widest">Sentinela Ativo</button>
+        <button onclick="solicitarAuditoria()" class="glass text-gold px-8 py-2 rounded-full hover:bg-gold hover:text-black transition duration-500 text-sm font-bold gold-glow uppercase tracking-widest">
+            Sentinela Ativo
+        </button>
     </nav>
 
-    <header class="min-h-screen flex flex-col justify-center items-center px-6 text-center relative z-10">
+    <header class="min-h-screen flex flex-col justify-center items-center px-6 text-center relative">
         <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
             <span id="typed-text" class="text-gold"></span>
         </h1>
@@ -63,8 +86,12 @@
             "Não apenas um site. Uma Fortaleza Digital projetada para quem valoriza a ética, a razão e a autoridade."
         </p>
         <div class="flex flex-col md:flex-row gap-6" data-aos="zoom-in" data-aos-delay="400">
-            <button onclick="solicitarAuditoria()" class="bg-gold text-black px-10 py-5 rounded-xl font-black text-lg hover:scale-105 transition gold-glow uppercase tracking-tighter">Quero o Sistema em Minha Empresa</button>
-            <button class="glass px-10 py-5 rounded-xl font-bold hover:bg-white/10 transition">Ver Auditoria Sentinela</button>
+            <button onclick="solicitarAuditoria()" class="bg-gold text-black px-10 py-5 rounded-xl font-black text-lg hover:scale-105 transition gold-glow uppercase tracking-tighter">
+                Quero o Sistema em Minha Empresa
+            </button>
+            <button onclick="solicitarAuditoria()" class="glass px-10 py-5 rounded-xl font-bold hover:bg-white/10 transition">
+                Ver Auditoria Sentinela
+            </button>
         </div>
     </header>
 
@@ -77,44 +104,4 @@
         <div class="glass p-10 rounded-[40px] group hover:border-gold transition duration-500" data-aos="fade-up" data-aos-delay="200">
             <div class="text-gold text-5xl mb-6 group-hover:scale-110 transition">💎</div>
             <h3 class="text-2xl font-bold mb-4 text-gold italic">Interfaces de Elite</h3>
-            <p class="opacity-60 leading-relaxed font-light text-lg">Design Verde Sálvia e Ouro projetado no Studio AI para transmitir autoridade imediata. O padrão que o topo exige.</p>
-        </div>
-        <div class="glass p-10 rounded-[40px] group hover:border-gold transition duration-500" data-aos="fade-left" data-aos-delay="400">
-            <div class="text-gold text-5xl mb-6 group-hover:scale-110 transition">👁️</div>
-            <h3 class="text-2xl font-bold mb-4 text-gold italic">Monitoramento</h3>
-            <p class="opacity-60 leading-relaxed font-light text-lg">Vigilância Sentinela 24/7. Capturamos intenções de compra no ato, antes que seu cliente procure o concorrente.</p>
-        </div>
-    </section>
-
-    <section class="py-40 text-center relative px-6" data-aos="reveal-in">
-        <div class="glass max-w-5xl mx-auto p-20 rounded-[60px] border-gold/40">
-            <h2 class="text-4xl md:text-5xl font-bold mb-8 italic">"Esperei com paciência no Senhor..."</h2>
-            <p class="text-gold tracking-[0.5em] font-bold uppercase mb-10">Missão 5: Fábrica de Gratidão</p>
-            <button onclick="solicitarAuditoria()" class="bg-gold text-black px-12 py-6 rounded-2xl font-black text-xl hover:scale-110 transition gold-glow uppercase">Transformar Minha Empresa Hoje</button>
-        </div>
-    </section>
-
-    <footer class="py-20 border-t border-white/5 text-center opacity-40 text-[10px] tracking-[0.4em]">
-        MFRGS INOVAÇÕES © 2026 | TECNOLOGIA EMPATHIA™ | RLS PROTECTED
-    </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-
-        // Efeito Typing (O Cérebro da Página)
-        new Typed('#typed-text', {
-            strings: ['A Autoridade Começa Aqui.', 'A Sua Fortaleza Digital.', 'A Gestão Inteligente.'],
-            typeSpeed: 50,
-            backSpeed: 30,
-            loop: true,
-            backDelay: 2000
-        });
-
-        function solicitarAuditoria() {
-            alert("Sentinela Ativado: Registrando sua solicitação de Auditoria...");
-            // Aqui integraremos com o seu sistema de formulário ou WhatsApp
-        }
-    </script>
-</body>
-</html>
+            <p class="opacity-60 leading-relaxed font-light text-lg">Design Verde Sálvia e Ouro projetado no Studio AI para transmitir
