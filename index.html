@@ -3,70 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MFRGS INOVAÇÕES | Inteligência e Autoridade Digital</title>
+    <title>MFRGS INOVAÇÕES | Fortaleza Digital & Inteligência</title>
     
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     
     <style>
-        .bg-sage { background-color: #2D3A30; }
-        .text-gold { color: #D4AF37; }
-        .border-gold { border-color: #D4AF37; }
-        .glass-card {
+        :root {
+            --sage: #2D3A30;
+            --gold: #D4AF37;
+            --deep: #0F1410;
+        }
+        body { background-color: var(--deep); overflow-x: hidden; }
+        
+        .glass {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
-        .hero-gradient {
-            background: linear-gradient(180deg, #2D3A30 0%, #1A221B 100%);
+
+        .gold-glow {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+        }
+
+        /* Animação de fundo */
+        .bg-animate {
+            background: radial-gradient(circle at 50% 50%, #2D3A30 0%, #0F1410 100%);
+            position: fixed; width: 100%; height: 100%; z-index: -1;
+        }
+
+        .floating-shape {
+            position: absolute; width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            filter: blur(50px); animation: float 15s infinite alternate;
+        }
+
+        @keyframes float {
+            from { transform: translate(0, 0); }
+            to { transform: translate(100px, 100px); }
         }
     </style>
 </head>
-<body class="hero-gradient text-gray-200 min-h-screen">
+<body class="text-gray-100 font-sans">
+    <div class="bg-animate text-white font-light"></div>
+    <div class="floating-shape top-0 left-0"></div>
 
-    <nav class="flex justify-between items-center p-6 max-w-7xl mx-auto">
-        <div class="text-2xl font-bold text-gold tracking-tighter">MFRGS <span class="text-white font-light">INOVAÇÕES</span></div>
-        <button onclick="solicitarAuditoria()" class="border border-gold text-gold px-6 py-2 rounded-full hover:bg-gold hover:text-black transition text-sm">Falar com o Sentinela</button>
+    <nav class="flex justify-between items-center p-8 max-w-7xl mx-auto relative z-10">
+        <div class="text-3xl font-bold text-gold tracking-tighter">MFRGS <span class="text-white font-light">INOVAÇÕES</span></div>
+        <button onclick="solicitarAuditoria()" class="glass text-gold px-8 py-2 rounded-full hover:bg-gold hover:text-black transition duration-500 text-sm font-bold gold-glow uppercase tracking-widest">Sentinela Ativo</button>
     </nav>
 
-    <header class="py-20 px-6 text-center max-w-4xl mx-auto">
-        <h1 class="text-5xl md:text-6xl font-bold mb-6">Não apenas um site. Uma <span class="text-gold">Fortaleza Digital</span>.</h1>
-        <p class="text-xl opacity-80 mb-10 font-light italic">Protegendo o investimento de quem valoriza a ética e a autoridade. Especialistas em Clínicas e Advocacia.</p>
-        <div class="flex flex-col md:flex-row gap-4 justify-center">
-            <button onclick="solicitarAuditoria()" class="bg-gold text-black px-8 py-4 rounded-lg font-bold hover:scale-105 transition shadow-lg shadow-yellow-900/20">QUERO O SISTEMA EM MINHA EMPRESA</button>
-            <button onclick="solicitarAuditoria()" class="glass-card px-8 py-4 rounded-lg font-medium hover:bg-white/10">Ver Auditoria Sentinela</button>
+    <header class="min-h-screen flex flex-col justify-center items-center px-6 text-center relative z-10">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+            <span id="typed-text" class="text-gold"></span>
+        </h1>
+        <p class="text-xl md:text-2xl opacity-60 mb-10 max-w-2xl font-light italic" data-aos="fade-up">
+            "Não apenas um site. Uma Fortaleza Digital projetada para quem valoriza a ética, a razão e a autoridade."
+        </p>
+        <div class="flex flex-col md:flex-row gap-6" data-aos="zoom-in" data-aos-delay="400">
+            <button onclick="solicitarAuditoria()" class="bg-gold text-black px-10 py-5 rounded-xl font-black text-lg hover:scale-105 transition gold-glow uppercase tracking-tighter">Quero o Sistema em Minha Empresa</button>
+            <button class="glass px-10 py-5 rounded-xl font-bold hover:bg-white/10 transition">Ver Auditoria Sentinela</button>
         </div>
     </header>
 
-    <section class="py-16 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="glass-card p-8 rounded-2xl">
-            <div class="text-gold text-3xl mb-4">🛡️</div>
-            <h3 class="text-xl font-bold mb-2 text-gold">Gestão de Tráfego Blindada</h3>
-            <p class="text-sm opacity-70 italic">Algoritmos que pausam o desperdício e focam no fechamento de alto valor. Seu dinheiro protegido com razão e ética.</p>
+    <section class="py-32 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="glass p-10 rounded-[40px] group hover:border-gold transition duration-500" data-aos="fade-right">
+            <div class="text-gold text-5xl mb-6 group-hover:scale-110 transition">🛡️</div>
+            <h3 class="text-2xl font-bold mb-4 text-gold italic">Gestão Blindada</h3>
+            <p class="opacity-60 leading-relaxed font-light text-lg">Algoritmos que pausam o desperdício e focam no fechamento de alto valor. Seu dinheiro protegido com razão.</p>
         </div>
-        <div class="glass-card p-8 rounded-2xl">
-            <div class="text-gold text-3xl mb-4">💎</div>
-            <h3 class="text-xl font-bold mb-2 text-gold">Interfaces de Elite</h3>
-            <p class="text-sm opacity-70 italic">Design Verde Sálvia e Ouro projetado para transmitir autoridade imediata. O padrão que clínicas e advogados exigem.</p>
+        <div class="glass p-10 rounded-[40px] group hover:border-gold transition duration-500" data-aos="fade-up" data-aos-delay="200">
+            <div class="text-gold text-5xl mb-6 group-hover:scale-110 transition">💎</div>
+            <h3 class="text-2xl font-bold mb-4 text-gold italic">Interfaces de Elite</h3>
+            <p class="opacity-60 leading-relaxed font-light text-lg">Design Verde Sálvia e Ouro projetado no Studio AI para transmitir autoridade imediata. O padrão que o topo exige.</p>
         </div>
-        <div class="glass-card p-8 rounded-2xl">
-            <div class="text-gold text-3xl mb-4">👁️</div>
-            <h3 class="text-xl font-bold mb-2 text-gold">Monitoramento Sentinela</h3>
-            <p class="text-sm opacity-70 italic">Vigilância 24/7 para não deixar nenhum cliente sem resposta. Capturamos intenções de compra no ato.</p>
+        <div class="glass p-10 rounded-[40px] group hover:border-gold transition duration-500" data-aos="fade-left" data-aos-delay="400">
+            <div class="text-gold text-5xl mb-6 group-hover:scale-110 transition">👁️</div>
+            <h3 class="text-2xl font-bold mb-4 text-gold italic">Monitoramento</h3>
+            <p class="opacity-60 leading-relaxed font-light text-lg">Vigilância Sentinela 24/7. Capturamos intenções de compra no ato, antes que seu cliente procure o concorrente.</p>
         </div>
     </section>
 
-    <section class="py-20 text-center glass-card mx-6 my-10 rounded-3xl max-w-5xl md:mx-auto p-10">
-        <h2 class="text-3xl font-bold mb-4 italic">"Esperei com paciência no Senhor..."</h2>
-        <p class="text-gold font-bold tracking-widest">Missão 5: Preparando a Fábrica de Gratidão</p>
+    <section class="py-40 text-center relative px-6" data-aos="reveal-in">
+        <div class="glass max-w-5xl mx-auto p-20 rounded-[60px] border-gold/40">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 italic">"Esperei com paciência no Senhor..."</h2>
+            <p class="text-gold tracking-[0.5em] font-bold uppercase mb-10">Missão 5: Fábrica de Gratidão</p>
+            <button onclick="solicitarAuditoria()" class="bg-gold text-black px-12 py-6 rounded-2xl font-black text-xl hover:scale-110 transition gold-glow uppercase">Transformar Minha Empresa Hoje</button>
+        </div>
     </section>
 
-    <footer class="py-10 border-t border-white/10 text-center opacity-50 text-xs">
-        <p class="mb-2">MFRGS INOVAÇÕES © 2026 | CNPJ: Sistema Integrado .com.br</p>
-        <p>Tecnologia EMPATHIA™ | Proteção de Dados RLS & Hardware Encryption</p>
+    <footer class="py-20 border-t border-white/5 text-center opacity-40 text-[10px] tracking-[0.4em]">
+        MFRGS INOVAÇÕES © 2026 | TECNOLOGIA EMPATHIA™ | RLS PROTECTED
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Efeito Typing (O Cérebro da Página)
+        new Typed('#typed-text', {
+            strings: ['A Autoridade Começa Aqui.', 'A Sua Fortaleza Digital.', 'A Gestão Inteligente.'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true,
+            backDelay: 2000
+        });
+
+        function solicitarAuditoria() {
+            alert("Sentinela Ativado: Registrando sua solicitação de Auditoria...");
+            // Aqui integraremos com o seu sistema de formulário ou WhatsApp
+        }
+    </script>
 </body>
 </html>
