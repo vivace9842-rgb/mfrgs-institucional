@@ -3,105 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MFRGS INOVAÇÕES | Fortaleza Digital & Inteligência</title>
-    
+    <title>MFRGS INOVAÇÕES | Fortaleza Digital</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    
     <style>
-        :root {
-            --sage: #2D3A30;
-            --gold: #D4AF37;
-            --deep: #0F1410;
-        }
-        
-        body { 
-            background-color: var(--deep); 
-            overflow-x: hidden; 
-            color: #f3f4f6;
-            font-family: sans-serif;
-        }
-        
-        /* Camada de Interatividade Calibrada */
-        nav, button, a, .clickable {
-            position: relative;
-            z-index: 50 !important;
-            cursor: pointer;
-            pointer-events: auto !important;
-        }
-
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        }
-
-        .gold-glow {
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
-        }
-
-        /* Animação de fundo (Fixa para não sobrepor cliques) */
-        .bg-animate {
-            background: radial-gradient(circle at 50% 50%, #2D3A30 0%, #0F1410 100%);
-            position: fixed; width: 100%; height: 100%; z-index: -1;
-        }
-
-        .floating-shape {
-            position: absolute; width: 300px; height: 300px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
-            filter: blur(50px); animation: float 15s infinite alternate;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        @keyframes float {
-            from { transform: translate(0, 0); }
-            to { transform: translate(100px, 100px); }
-        }
-
-        button:active {
-            transform: scale(0.95);
-            filter: brightness(1.2);
-        }
+        :root { --sage: #2D3A30; --gold: #D4AF37; --deep: #0F1410; }
+        body { background-color: var(--deep); color: #f3f4f6; overflow-x: hidden; font-family: sans-serif; }
+        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(15px); border: 1px solid rgba(212,175,55,0.2); }
+        .gold-glow { box-shadow: 0 0 20px rgba(212,175,55,0.15); }
+        .bg-animate { background: radial-gradient(circle at 50% 50%, #2D3A30 0%, #0F1410 100%); position: fixed; width: 100%; height: 100%; z-index: -1; }
+        nav, button, a { position: relative; z-index: 50 !important; cursor: pointer; pointer-events: auto !important; }
     </style>
 </head>
 <body>
     <div class="bg-animate"></div>
-    <div class="floating-shape top-0 left-0"></div>
-
-    <nav class="flex justify-between items-center p-8 max-w-7xl mx-auto relative">
-        <div class="text-3xl font-bold text-gold tracking-tighter">MFRGS <span class="text-white font-light">INOVAÇÕES</span></div>
-        <button onclick="solicitarAuditoria()" class="glass text-gold px-8 py-2 rounded-full hover:bg-gold hover:text-black transition duration-500 text-sm font-bold gold-glow uppercase tracking-widest">
-            Sentinela Ativo
-        </button>
+    <nav class="flex justify-between items-center p-8 max-w-7xl mx-auto">
+        <div class="text-3xl font-bold text-gold italic">MFRGS <span class="text-white font-light not-italic">INOVAÇÕES</span></div>
+        <button onclick="alert('Sentinela Ativado')" class="glass text-gold px-8 py-2 rounded-full text-sm font-bold gold-glow uppercase tracking-widest">Sentinela Ativo</button>
     </nav>
-
-    <header class="min-h-screen flex flex-col justify-center items-center px-6 text-center relative">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-            <span id="typed-text" class="text-gold"></span>
-        </h1>
-        <p class="text-xl md:text-2xl opacity-60 mb-10 max-w-2xl font-light italic" data-aos="fade-up">
-            "Não apenas um site. Uma Fortaleza Digital projetada para quem valoriza a ética, a razão e a autoridade."
-        </p>
-        <div class="flex flex-col md:flex-row gap-6" data-aos="zoom-in" data-aos-delay="400">
-            <button onclick="solicitarAuditoria()" class="bg-gold text-black px-10 py-5 rounded-xl font-black text-lg hover:scale-105 transition gold-glow uppercase tracking-tighter">
-                Quero o Sistema em Minha Empresa
-            </button>
-            <button onclick="solicitarAuditoria()" class="glass px-10 py-5 rounded-xl font-bold hover:bg-white/10 transition">
-                Ver Auditoria Sentinela
-            </button>
+    <header class="min-h-screen flex flex-col justify-center items-center px-6 text-center">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-gold" id="typed-text"></h1>
+        <p class="text-xl md:text-2xl opacity-60 mb-10 max-w-2xl font-light italic">"Não apenas um site. Uma Fortaleza Digital projetada para quem valoriza a ética, a razão e a autoridade."</p>
+        <div class="flex flex-col md:flex-row gap-6">
+            <button class="bg-gold text-black px-10 py-5 rounded-xl font-black text-lg hover:scale-105 transition gold-glow uppercase">Quero o Sistema em Minha Empresa</button>
+            <button class="glass px-10 py-5 rounded-xl font-bold hover:bg-white/10 transition">Ver Auditoria Sentinela</button>
         </div>
     </header>
-
     <section class="py-32 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-        <div class="glass p-10 rounded-[40px] group hover:border-gold transition duration-500" data-aos="fade-right">
-            <div class="text-gold text-5xl mb-6 group-hover:scale-110 transition">🛡️</div>
-            <h3 class="text-2xl font-bold mb-4 text-gold italic">Gestão Blindada</h3>
-            <p class="opacity-60 leading-relaxed font-light text-lg">Algoritmos que pausam o desperdício e focam no fechamento de alto valor. Seu dinheiro protegido com razão.</p>
+        <div class="glass p-10 rounded-[40px] group hover:border-gold transition duration-500 text-center">
+            <div class="text-5xl mb-6">🛡️</div>
+            <h3 class="text-2xl font-bold mb-4 text-gold">Gestão Blindada</h3>
+            <p class="opacity-60">Algoritmos que pausam o desperdício e focam no fechamento de alto valor.</p>
         </div>
-        <div class="glass p-10 rounded-[40px] group hover:border-gold transition duration-500" data-aos="fade-up" data-aos-delay="200">
-            <div class="text-gold text-5xl mb-6 group-hover:scale-110 transition">💎</div>
-            <h3 class="text-2xl font-bold mb-4 text-gold italic">Interfaces de Elite</h3>
-            <p class="opacity-60 leading-relaxed font-light text-lg">Design Verde Sálvia e Ouro projetado no Studio AI para transmitir
+        <div class="glass p-10 rounded-[40px] group hover:border-gold transition duration-500 text-center">
+            <div class="text-5xl mb-6">💎</div>
+            <h3 class="text-2xl font-bold mb-4 text-gold">Interfaces de Elite</h3>
+            <p class="opacity-60">Design Verde Sálvia e Ouro projetado para transmitir autoridade imediata.</p>
+        </div>
+        <div class="glass p-10 rounded-[40px] group hover:border-gold transition duration-500 text-center">
+            <div class="text-5xl mb-6">👁️</div>
+            <h3 class="text-2xl font-bold mb-4 text-gold">Monitoramento</h3>
+            <p class="opacity-60">Vigilância Sentinela 24/7. Capturamos intenções de compra no ato.</p>
+        </div>
+    </section>
+    <footer class="py-20 border-t border-white/5 text-center opacity-40 text-[10px] tracking-[0.4em]">
+        MFRGS INOVAÇÕES © 2026 | TECNOLOGIA EMPATHIA™ | RLS PROTECTED
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        new Typed('#typed-text', {
+            strings: ['A Autoridade Começa Aqui.', 'A Sua Fortaleza Digital.', 'A Gestão Inteligente.'],
+            typeSpeed: 50, backSpeed: 30, loop: true, backDelay: 2000
+        });
+    </script>
+</body>
+</html>
